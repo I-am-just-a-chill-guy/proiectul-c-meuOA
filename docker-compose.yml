@@ -1,0 +1,5 @@
+services:
+  app:
+    build: .
+    container_name: patient_program_container
+    command: ./myapp
