@@ -105,7 +105,5 @@ int main() {
     levelOrder(root);
     printf("\n");
 
-printf("\n NU ai vazut-o pe asta!");
-
     return 0;
 }
