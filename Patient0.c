@@ -105,5 +105,6 @@ int main() {
     levelOrder(root);
     printf("\n");
 
+printf("aia e!");
     return 0;
 }
