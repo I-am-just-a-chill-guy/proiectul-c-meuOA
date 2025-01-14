@@ -2,14 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Structura unui nod al arborelui
 struct Node {
     int data;
     struct Node* left;
     struct Node* right;
 };
 
-// Funcție pentru a crea un nod nou
 struct Node* newNode(int data) {
     struct Node* node = (struct Node*)malloc(sizeof(struct Node));
     node->data = data;
@@ -18,7 +16,6 @@ struct Node* newNode(int data) {
     return node;
 }
 
-// Funcție pentru inserarea unui element într-un arbore binar ordonat
 struct Node* insert(struct Node* root, int data) {
     if (root == NULL) {
         return newNode(data);
@@ -31,7 +28,6 @@ struct Node* insert(struct Node* root, int data) {
     return root;
 }
 
-// Traversare pre-ordine
 void preOrder(struct Node* root) {
     if (root == NULL) return;
     printf("%d ", root->data);
@@ -39,7 +35,6 @@ void preOrder(struct Node* root) {
     preOrder(root->right);
 }
 
-// Traversare in-ordine
 void inOrder(struct Node* root) {
     if (root == NULL) return;
     inOrder(root->left);
@@ -47,7 +42,7 @@ void inOrder(struct Node* root) {
     inOrder(root->right);
 }
 
-// Traversare post-ordine
+
 void postOrder(struct Node* root) {
     if (root == NULL) return;
     postOrder(root->left);
@@ -55,11 +50,10 @@ void postOrder(struct Node* root) {
     printf("%d ", root->data);
 }
 
-// Traversare pe nivel (level-order traversal) folosind o coadă
 void levelOrder(struct Node* root) {
     if (root == NULL) return;
 
-    struct Node* queue[100]; // Coada pentru niveluri
+    struct Node* queue[100];
     int front = 0, rear = 0;
 
     queue[rear++] = root;
@@ -76,19 +70,18 @@ void levelOrder(struct Node* root) {
 int main() {
     struct Node* root = NULL;
 
-    // Inițializăm generatorul de numere aleatorii
+
     srand(time(NULL));
     
-    int n = 10; // Numărul de noduri generate
+    int n = 10;
     printf("Se insereaza %d elemente aleatorii in arbore:\n", n);
     for (int i = 0; i < n; i++) {
-        int randomValue = rand() % 100; // Generăm valori între 0 și 99
+        int randomValue = rand() % 100;
         printf("%d ", randomValue);
         root = insert(root, randomValue);
     }
     printf("\n\n");
 
-    // Afișăm rezultatele traversărilor
     printf("Traversare Pre-ordine: ");
     preOrder(root);
     printf("\n");
